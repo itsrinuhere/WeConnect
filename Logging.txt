@@ -1,0 +1,29 @@
+Oct 16, 2022 9:09:07 PM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+
+path -> http://localhost:8080/Webservice/test/hello/hi
+path -> 
+weather application using rest API
+requirements 
+->json4j  link https://www.ibm.com/docs/en/was/9.0.5?topic=responses-implementing-resource-method-using-json4j
+-> annotations https://docs.oracle.com/cd/E19798-01/821-1841/gipxf/index.html#:~:text=The%20%40Produces%20annotation%20is%20used,specified%20MIME%20types%20by%20default.
+
+Target ->  
+1.log4J
+2.POJO
+3.Hibernate
+4.jersey
+5.ngnix --> elastic server
+6.adroid implementations
+7.programming ----- MAp,graph,list,opps,hash,ques,trees,linked vs array,operator overloading,vectors,enum map,comparator,iterator,deques,concurrenthash linked
+8.oauth
+
+https://rapidapi.com/blog/how-to-use-an-api-with-java/
+
+{ERRORS}
+LOGGER->Oct 17, 2022 1:29:16 AM com.sun.jersey.api.core.ScanningResourceConfig logClasses
+INFO: Root resource classes found:
+  class Web.Main.HelloWorld
+Oct 17, 2022 1:29:16 AM com.sun.jersey.api.core.ScanningResourceConfig init
+INFO: No provider classes found.
+Oct 17, 2022 1:29:16 AM com.sun.jersey.server.impl.application.WebApplicationImpl _initiate
