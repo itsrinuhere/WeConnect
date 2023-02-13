@@ -11,7 +11,7 @@ public class Custom extends ResourceConfig
 	{
 		packages("api.main");
 		register(LoggingFilter.class);
-		register(GsonMessageBodyHandler.class);
+	//	register(GsonMessageBodyHandler.class);
 		register(SecurityFilter.class);
 	}
 }

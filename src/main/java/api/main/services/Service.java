@@ -14,8 +14,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
+import javax.ws.rs.core.Response.Status;
+
 import org.glassfish.jersey.servlet.ServletContainer;
 import api.main.AlertSystem.*;
+import api.main.UserSystem.User;
+import api.main.UserSystem.Utility;
 @Path("/endpoint")
 public class Service extends Application{
 	@RolesAllowed("ADMIN")
@@ -100,5 +105,29 @@ public class Service extends Application{
 	            return Response.notModified().build();
 	        } 
 	}
-	
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/auth/signup")
+	public Response saveUser(User user) {
+		 if (new Utility().saveUser(user)) {
+	            return Response.ok().status(Response.Status.CREATED).build();
+	        } else {
+	            return Response.notModified().build();
+	        } 
+	}@GET
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Path("/auth/signin")
+	public Response signin(User user) {
+		List<User> data = new Utility().getUser(user.getUsername());
+		if(data!=null) {
+			if(data.get(0).getPasscode().equals(user.getPasscode())){
+				System.out.println("DEBUG : success");
+				return Response.status(Status.ACCEPTED).build();
+			}
+		}System.out.println("DEBUG : failed");
+		return Response.status(Status.NOT_FOUND).build();
+		
+	}
 }
